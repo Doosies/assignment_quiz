@@ -3,7 +3,7 @@ import { Outlet, Route, createBrowserRouter, createRoutesFromElements } from 're
 import { BottomBar } from '@components/common';
 import { GlobalLayout } from '@components/layout';
 
-import { HomePage, QuizPage, WrongNotePage } from './pages';
+import { HomePage, QuizPage, ResultsPage, WrongNotePage } from './pages';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -40,6 +40,10 @@ const router = createBrowserRouter(
       <Route
         path="/quiz"
         element={<QuizPage />}
+      />
+      <Route
+        path="/result"
+        element={<ResultsPage />}
       />
       <Route
         path="/wrong-note"
