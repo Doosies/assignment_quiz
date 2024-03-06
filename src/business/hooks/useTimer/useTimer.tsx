@@ -19,5 +19,11 @@ export function useTimer(initialMilliseconds = 0) {
     return () => clearInterval(interval);
   }, []);
 
-  return toTimeString(nowTime + initialMilliseconds);
+  const { hours, minutes, seconds } = toTimeString(nowTime + initialMilliseconds);
+
+  if (Number(hours) > 0) {
+    return `${hours}:${minutes}:${seconds}`;
+  } else {
+    return `${minutes}:${seconds}`;
+  }
 }

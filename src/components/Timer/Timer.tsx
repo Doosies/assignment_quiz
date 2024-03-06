@@ -5,11 +5,11 @@ interface TimerProps {
 }
 
 export function Timer({ startMS = 0 }: TimerProps) {
-  const { hours, minutes, seconds } = useTimer(startMS);
+  const timer = useTimer(startMS);
 
   return (
     <div className="align-middle border p-2 rounded-md bg-slate-200 ">
-      <span>{hours}</span> : <span>{minutes}</span> : <span>{seconds}</span>
+      <span>{timer}</span>
     </div>
   );
 }
