@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { ProgressBar } from '@components/common';
 
-export function Home() {
+export function HomePage() {
   const [now, setNow] = useState(0);
 
   return (
