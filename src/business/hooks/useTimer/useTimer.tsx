@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 import { toTimeString } from '@utils/string';
 import { ONE_SECOND_MS } from '@utils/time';
 
-export function useTimer(initialTime = 0) {
+export function useTimer(initialMilliseconds = 0) {
   const startTime = useRef(0);
-  const [nowTime, setNowTime] = useState(initialTime);
+  const [nowTime, setNowTime] = useState(0);
 
   useEffect(() => {
     startTime.current = new Date().getTime();
@@ -19,5 +19,5 @@ export function useTimer(initialTime = 0) {
     return () => clearInterval(interval);
   }, []);
 
-  return toTimeString(nowTime);
+  return toTimeString(nowTime + initialMilliseconds);
 }
