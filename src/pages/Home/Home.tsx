@@ -1,3 +1,9 @@
+import { Timer } from '@components/Timer';
+
 export function Home() {
-  return <div>home</div>;
+  return (
+    <div>
+      <Timer />
+    </div>
+  );
 }
