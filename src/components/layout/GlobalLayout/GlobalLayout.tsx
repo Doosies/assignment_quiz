@@ -6,7 +6,8 @@ export function GlobalLayout({ children }: PropsWithChildren) {
       <div
         className={`h-full w-full 
             max-w-screen-sm flex flex-col
-            lg:max-h-[900px] lg:border lg:border-gray-200 lg:rounded-md`}
+            md: border md:border-l-gray-200 md:border-r-gray-200 md:rounded-md
+            `}
       >
         {children}
       </div>
