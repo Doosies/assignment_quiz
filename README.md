@@ -1,30 +1,93 @@
-# React + TypeScript + Vite
+# Features
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Components
 
-Currently, two official plugins are available:
+### Timer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [ ] 마운트 되면 0초부터 시작한다.
+- [ ] 초기값을 props로 받을 수 있다.
 
-## Expanding the ESLint configuration
+### ProgressBar
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [ ] min, now, max, type을 props로 받는다.
+- [ ] type default === 'text' 이다.
+- [ ] type === 'bar'면 바 형태로 표시한다.
+- [ ] type === 'text'면 텍스트 형태로 표시한다.
 
-- Configure the top-level `parserOptions` property like this:
+### QuizTop 구현
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- [ ] title을 props로 받는다.
+- [ ] 만약 childen이 있다면 title 상단에 표시한다.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### QuizItem 구현
+
+- [ ] answers, correctAnswer, userAnswer props로 받는다.
+- [ ] userAnswer가 있으면 선택한 보기를 표시하는데 선택할 수 없다.
+  - [ ] answers를 map으로 돌면서 각 보기를 표시한다.
+    - [ ] 현재 보기가 correctAnswer이면 초록색으로 표시한다.
+    - [ ] 현재 보기가 userAnswer이면 빨간색으로 표시한다.
+- [ ] useAnswer가 있으면 선택할 수 있는 보기를 표시한다.
+
+### Quiz 구현
+
+- 퀴즈의 최상단 Cotainer 컴포넌트이다.
+
+## 메인 페이지
+
+- [ ] 메인 페이지에서 버튼을 누르면 다음 페이지로 이동할 수 있다.
+  - [ ] 퀴즈 풀기: 퀴즈 푸는 페이지로 이동
+  - [ ] 결과 페이지:
+  - [ ] 오답 노트: 오탑노트 페이지로 이동
+
+## 퀴즈 풀기 페이지 (quiz/?page=1)
+
+- [ ] 기본기능
+
+  - [ ] 페이지에 입장하면 서버로부터 퀴즈를 불러온다.
+  - [ ] 현재/전체 문항수를 볼 수있다.
+  - [ ] 퀴즈를 풀기 `시작하면 타이머가 시작`된다.
+  - [ ] 문항에 대한 답을 4개의 보기 중에서 선택할 수 있다.
+    - [ ] 정답을 한번 고르면 `변경할 수 없다`.
+    - [ ] 만약 선택한게 `오답`이면
+      - [ ] 정답인 보기는 초록색으로 표시된다.
+      - [ ] 선택한 보기는 빨간색으로 표시된다.
+      - [ ] 임시 오답노트에 추가된다.
+    - [ ] 만약 선택한게 `정답`이면
+      - [ ] 선택한 보기는 초록색으로 표시된다.
+      - [ ] 다음문항 버튼이 활성화된다.
+  - [ ] 다음문항 버튼을 누르면 다음 문항으로 이동된다.
+    - [ ] 답안중 한개를 선택해야 화면에 다음문제 버튼이 화면에 표시된다.
+    - [ ] 마지막 문항에서는 다음문제 버튼이 결과보기 버튼으로 변경된다.
+  - [ ] 만약 문제를 푸는 중간에 페이지를 나가면 다시 들어왔을 때 이어서 풀 수 있다.
+
+    - [ ] 타이머도 이어서 작동한다.
+    - [ ] 이전에 답안을 선택했으면 그것을 표시한다.
+    - [ ] 이전에 답안을 선택하지 않았으면 선택하지 않은 상태로 표시한다.
+    - [ ] 마지막 문항에서 나갔다면 결과보기 버튼이 활성화된다.
+    - [ ] 이전 이어서 풀던 문항이 없는데 page를 직접 입력해서 들어오면 첫번째 문항부터 시작한다.
+
+  - [ ] 추가기능
+    - [ ] 서버에서 값을 받아오면 로컬스토리지에 저장함
+    - [ ] 페이지 진입 전 `로컬스토리지`에 `값이 있다면` `이어서 푸시나요?` 라는 모달을 띄운다.
+      - [ ] 확인을 누르면 이어서 푼다.
+      - [ ] 취소를 누르면 로컬스토리지의 값을 삭제하고 처음부터 푼다.
+    - [ ] 페이지 진입 전 `로컬스토리지`에 `값이 없다면` 서버에서 값을 받아온다.
+
+## 결과 페이지 (result)
+
+- [ ] state로 걸린시간, 정답개수, 오답개수, 임시 오답리스트를 넘겨받는다.
+- [ ] state를 받지 못했다면 error 페이지로 이동한다.
+- [ ] 정답률은 차트로 표시한다.
+- [ ] 임시 오답리스트를 로컬스토리지의 오답노트에 추가한다.
+
+## 오답노트 페이지 (wrong-note)
+
+- [ ] 지금까지 퀴즈를 풀며 틀린 문항을 모두 볼 수 있다.
+- [ ] 만약 문제를 틀렸다면 내가 선택한 오답과 정답이 표시된다.
+- [ ] 만약 문제를 맞았다면 정답만 표시된다.
+- [ ] 이전문항 버튼을 누르면 이전 오답으로 이동한다.
+  - [ ] 만약 첫번째 오답이라면 버튼이 표시되지 않는다.
+- [ ] 다음문항 버튼을 누르면 다음 오답으로 이동한다.
+  - [ ] 만약 마지막 오답이라면 버튼이 표시되지 않는다.
+- [ ] 또 풀지않기 버튼을 누르면 오답노트에서 제거 후 다음 오답으로 이동한다.
+- [ ] 오답노트에서 모든 문제를 풀었다면 메인페이지로 이동할 수 있다.
