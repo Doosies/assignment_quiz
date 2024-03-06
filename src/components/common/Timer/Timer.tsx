@@ -8,7 +8,7 @@ export function Timer({ startMS = 0 }: TimerProps) {
   const timer = useTimer(startMS);
 
   return (
-    <div className="align-middle border p-2 rounded-md bg-slate-200 ">
+    <div className="align-middle p-2">
       <span>{timer}</span>
     </div>
   );
