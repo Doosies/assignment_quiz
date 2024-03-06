@@ -22,7 +22,7 @@
 ### QuizTop 구현
 
 - [ ] title을 props로 받는다.
-- [ ] 만약 childen이 있다면 title 상단에 표시한다.
+- [ ] 만약 childen이 있다면 title 하단에 표시한다.
 
 ### QuizItem 구현
 
