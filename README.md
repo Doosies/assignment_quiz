@@ -14,10 +14,10 @@
 
 ### ProgressBar
 
-- [ ] min, now, max, type을 props로 받는다.
-- [ ] type default === 'text' 이다.
-- [ ] type === 'bar'면 바 형태로 표시한다.
-- [ ] type === 'text'면 텍스트 형태로 표시한다.
+- [x] min, now, max, type을 props로 받는다.
+- [x] type default === 'text' 이다.
+- [x] type === 'bar'면 바 형태로 표시한다.
+- [x] type === 'text'면 텍스트 형태로 표시한다.
 
 ### QuizTop 구현
 
