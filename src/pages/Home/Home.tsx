@@ -1,3 +1,7 @@
+import { useTimer } from '@business/hooks';
+
 export function Home() {
-  return <div>home</div>;
+  const timer = useTimer();
+
+  return <div>{timer}</div>;
 }
