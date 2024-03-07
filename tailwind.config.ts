@@ -5,7 +5,8 @@ export default {
   theme: {
     extend: {
       backgroundColor: ({ colors }) => ({
-        paper: colors.gray[200],
+        paper: colors.gray[50],
+        gray: colors.gray[200],
         blue: colors.blue[500],
         'blue-hover': colors.blue[700],
       }),
