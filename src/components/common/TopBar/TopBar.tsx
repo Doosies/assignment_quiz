@@ -14,7 +14,7 @@ export function TopBar({ title }: TopBarProps) {
   };
 
   return (
-    <header className="flex items-center bg-paper p-4 gap-4">
+    <header className="flex items-center bg-paper p-4 gap-4 text-2xl">
       <Button
         className="text-xs"
         onClick={goHomePage}
