@@ -11,9 +11,7 @@ const router = createBrowserRouter(
       element={
         <>
           <GlobalLayout>
-            <GlobalLayout.Main>
-              <Outlet />
-            </GlobalLayout.Main>
+            <Outlet />
           </GlobalLayout>
         </>
       }

@@ -5,8 +5,10 @@ export default {
   theme: {
     extend: {
       backgroundColor: ({ colors }) => ({
-        paper: colors.gray[200],
+        paper: colors.gray[50],
+        gray: colors.gray[200],
         blue: colors.blue[500],
+        'blue-hover': colors.blue[700],
       }),
     },
   },
@@ -22,16 +24,6 @@ export default {
           '&::-webkit-progress-bar': {
             backgroundColor: config('theme.colors.gray.200'),
             borderRadius: config('theme.borderRadius.md'),
-          },
-        },
-        button: {
-          backgroundColor: config('theme.colors.blue.500'),
-          borderRadius: config('theme.borderRadius.md'),
-          color: config('theme.colors.white'),
-          padding: '0.5rem 1rem',
-          transition: 'background-color 0.5s ease-in-out',
-          '&:hover': {
-            backgroundColor: config('theme.colors.blue.500'),
           },
         },
       });
