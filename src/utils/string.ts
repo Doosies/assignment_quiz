@@ -1,4 +1,4 @@
-import { ONE_HOUR, ONE_MINUTE } from '.';
+import { ONE_HOUR, ONE_MINUTE } from './time';
 
 export function toTimeString(milliseconds: number) {
   const hours = Math.floor(milliseconds / ONE_HOUR);
@@ -11,4 +11,8 @@ export function toTimeString(milliseconds: number) {
 export function paddingZero(value: string | number, length: number): string {
   const stringValue = String(value);
   return stringValue.padStart(length, '0');
+}
+
+export function circledNumber(number: number) {
+  return `${String.fromCharCode(9311 + number)}`;
 }

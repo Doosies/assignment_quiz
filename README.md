@@ -24,14 +24,15 @@
 - [ ] title을 props로 받는다.
 - [ ] 만약 childen이 있다면 title 하단에 표시한다.
 
-### QuizItem 구현
+### QuizBody구현
 
-- [ ] answers, correctAnswer, userAnswer props로 받는다.
-- [ ] userAnswer가 있으면 선택한 보기를 표시하는데 선택할 수 없다.
-  - [ ] answers를 map으로 돌면서 각 보기를 표시한다.
-    - [ ] 현재 보기가 correctAnswer이면 초록색으로 표시한다.
-    - [ ] 현재 보기가 userAnswer이면 빨간색으로 표시한다.
-- [ ] useAnswer가 있으면 선택할 수 있는 보기를 표시한다.
+- [x] answers, correctAnswer, userAnswer props로 받는다.
+- [x] userAnswer가 있으면 선택한 보기를 표시하는데 선택할 수 없다.
+  - [x] answers를 map으로 돌면서 각 보기를 표시한다.
+    - [x] 현재 보기가 correctAnswer이면 초록색으로 표시한다.
+    - [x] 현재 보기가 userAnswer이면 빨간색으로 표시한다.
+- [x] userAnswer가 없으면 선택할 수 있는 보기를 표시한다.
+- [x] userAnswer가 있으면 선택할 수 없다.
 
 ### Quiz 구현
 

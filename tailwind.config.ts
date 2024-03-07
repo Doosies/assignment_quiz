@@ -4,10 +4,12 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      backgroundColor: ({ colors }) => ({
+      colors: ({ colors }) => ({
         paper: colors.gray[50],
+        'paper-hover': colors.gray[100],
         gray: colors.gray[200],
         blue: colors.blue[500],
+        red: colors.red[500],
         'blue-hover': colors.blue[700],
       }),
     },
