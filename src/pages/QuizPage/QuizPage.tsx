@@ -1,3 +1,10 @@
+import { TopBar } from '@components/common';
+
 export function QuizPage() {
-  return <div>quiz</div>;
+  return (
+    <>
+      <TopBar title="퀴즈 풀기" />
+      quiz
+    </>
+  );
 }
