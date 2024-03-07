@@ -15,7 +15,7 @@ export function QuizBody({ answers, correctAnswer, userAnswer, onClick }: QuizBo
   const { getAnswerColor, correctAnswerIndex, isCorrectAnswer } = useQuizAnswer({ answers, correctAnswer, userAnswer });
 
   const clickAnswer = (answer: string) => {
-    if (userAnswer) return;
+    if (!userAnswer) return;
     onClick?.(answer);
   };
 
