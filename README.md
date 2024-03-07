@@ -14,6 +14,11 @@
 - [x] type === 'bar'면 바 형태로 표시한다.
 - [x] type === 'text'면 텍스트 형태로 표시한다.
 
+### TopBar
+
+- [ ] props로 title을 받는다.
+- [ ] 왼쪽 상단의 버튼을 누르면 `/`로 이동한다.
+
 ### QuizTop 구현
 
 - [ ] title을 props로 받는다.
