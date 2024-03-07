@@ -28,12 +28,12 @@ describe('QuizBody', () => {
 
   [
     {
-      scenario: 'userAnswer가 있을경우 클릭할 수 있다.',
+      scenario: 'userAnswer가 있을경우 클릭할 수 없다.',
       correctAnswer: 't1',
       userAnswer: 't1',
     },
     {
-      scenario: 'userAnswer가 없을경우 클릭할 수 없다.',
+      scenario: 'userAnswer가 없을경우 클릭할 수 있다.',
       correctAnswer: 't1',
     },
   ].forEach(({ scenario, correctAnswer, userAnswer }) => {
@@ -50,15 +50,15 @@ describe('QuizBody', () => {
         />,
       );
 
-      // userAnswer가 있으면 클릭할 수 있다.
       const firstAnswerElement = getByText(answers[0]);
+      firstAnswerElement.click();
+      // userAnswer가 있으면 클릭할 수 없다.
       if (userAnswer) {
-        firstAnswerElement.click();
-        expect(onClick).toBeCalledWith(answers[0]);
+        expect(onClick).not.toBeCalled();
       }
       // userAnswer가 없으면 클릭할 수 없다.
       else {
-        expect(onClick).not.toBeCalled();
+        expect(onClick).toBeCalledWith(answers[0]);
       }
     });
   });

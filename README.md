@@ -31,7 +31,8 @@
   - [x] answers를 map으로 돌면서 각 보기를 표시한다.
     - [x] 현재 보기가 correctAnswer이면 초록색으로 표시한다.
     - [x] 현재 보기가 userAnswer이면 빨간색으로 표시한다.
-- [x] useAnswer가 없으면 선택할 수 있는 보기를 표시한다.
+- [x] userAnswer가 없으면 선택할 수 있는 보기를 표시한다.
+- [x] userAnswer가 있으면 선택할 수 없다.
 
 ### Quiz 구현
 
