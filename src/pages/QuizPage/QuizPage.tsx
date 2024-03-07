@@ -1,10 +1,9 @@
-import { TopBar } from '@components/common';
+import { PageLayout } from '@components/layout';
 
 export function QuizPage() {
   return (
     <>
-      <TopBar title="퀴즈 풀기" />
-      quiz
+      <PageLayout title="Quiz">quiz body</PageLayout>
     </>
   );
 }

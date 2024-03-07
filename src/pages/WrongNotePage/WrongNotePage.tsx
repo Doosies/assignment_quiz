@@ -1,9 +1,9 @@
-import { TopBar } from '@components/common';
+import { PageLayout } from '@components/layout';
 
 export function WrongNotePage() {
   return (
     <>
-      <TopBar title="오답 노트" /> WrongNotePage
+      <PageLayout title="wrong-note">quiz body</PageLayout>
     </>
   );
 }

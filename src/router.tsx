@@ -9,11 +9,9 @@ const router = createBrowserRouter(
     <Route
       path="/"
       element={
-        <>
-          <GlobalLayout>
-            <Outlet />
-          </GlobalLayout>
-        </>
+        <GlobalLayout>
+          <Outlet />
+        </GlobalLayout>
       }
     >
       <Route

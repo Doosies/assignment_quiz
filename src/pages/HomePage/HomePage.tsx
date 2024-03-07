@@ -2,13 +2,14 @@ import { useState } from 'react';
 
 import { ProgressBar } from '@components/common';
 import { Button } from '@components/common';
+import { PageLayout } from '@components/layout';
 
 export function HomePage() {
   const [now, setNow] = useState(0);
 
   return (
     <>
-      <div>
+      <PageLayout noTopBar>
         <ProgressBar
           now={now}
           max={7}
@@ -20,7 +21,7 @@ export function HomePage() {
         />
         <br />
         <Button onClick={() => setNow(now + 1)}>Increment</Button>
-      </div>
+      </PageLayout>
     </>
   );
 }

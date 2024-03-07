@@ -1,10 +1,9 @@
-import { TopBar } from '@components/common';
+import { PageLayout } from '@components/layout';
 
 export function ResultsPage() {
   return (
     <>
-      <TopBar title="결과 보기" />
-      <h1>Results Page</h1>
+      <PageLayout title="result">quiz body</PageLayout>
     </>
   );
 }
