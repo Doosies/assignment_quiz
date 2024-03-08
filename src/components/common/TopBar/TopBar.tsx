@@ -14,15 +14,15 @@ export function TopBar({ title }: TopBarProps) {
   };
 
   return (
-    <header className="flex items-center bg-paper p-4 gap-4 text-2xl">
+    <header className="flex items-center bg-paper p-4 gap-4 ">
       <Button
-        className="text-xs"
         onClick={goHomePage}
         color="secondary"
+        size="xs"
       >
         홈으로
       </Button>
-      <span>{title}</span>
+      <span className="text-2xl">{title}</span>
     </header>
   );
 }
