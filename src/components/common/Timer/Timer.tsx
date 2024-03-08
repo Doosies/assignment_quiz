@@ -1,15 +1,11 @@
-import { useTimer } from '@business/hooks';
-
 interface TimerProps {
-  startMS?: number;
+  time: string;
 }
 
-export function Timer({ startMS = 0 }: TimerProps) {
-  const timer = useTimer(startMS);
-
+export function Timer({ time }: TimerProps) {
   return (
-    <div className="align-middle p-2">
-      <span>{timer}</span>
+    <div className="align-middle p-2 pr-4">
+      <span>{time}</span>
     </div>
   );
 }
