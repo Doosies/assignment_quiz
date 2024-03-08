@@ -21,8 +21,8 @@
 
 ### QuizTop 구현
 
-- [ ] title을 props로 받는다.
-- [ ] 만약 childen이 있다면 title 하단에 표시한다.
+- [x] title, nowQuizPage, maxQuizPage를 props로 받는다.
+- [x] 퀴즈 제목, progress bar, timer가 표시된다.
 
 ### QuizBody구현
 
