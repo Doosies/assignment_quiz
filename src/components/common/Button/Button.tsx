@@ -1,12 +1,12 @@
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
-  onlyText?: boolean;
   className?: string;
+  color?: 'primary' | 'secondary';
 }
 
-export function Button({ children, onClick, onlyText, className }: ButtonProps) {
-  const bgColor = onlyText ? 'bg-white hover:bg-gray border' : 'text-white bg-blue hover:bg-blue-hover';
+export function Button({ children, onClick, className, color = 'primary' }: ButtonProps) {
+  const bgColor = color === 'primary' ? 'text-white bg-blue hover:bg-blue-hover' : 'bg-white hover:bg-gray border';
 
   return (
     <button

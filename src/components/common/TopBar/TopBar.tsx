@@ -18,7 +18,7 @@ export function TopBar({ title }: TopBarProps) {
       <Button
         className="text-xs"
         onClick={goHomePage}
-        onlyText
+        color="secondary"
       >
         홈으로
       </Button>
