@@ -19,12 +19,12 @@ export default {
       addComponents({
         '.progress-bar': {
           '&::-webkit-progress-value': {
-            backgroundColor: config('theme.colors.blue.500'),
+            backgroundColor: config('theme.colors.blue'),
             borderRadius: config('theme.borderRadius.md'),
             transition: 'width 0.5s ease-in-out',
           },
           '&::-webkit-progress-bar': {
-            backgroundColor: config('theme.colors.gray.200'),
+            backgroundColor: config('theme.colors.gray'),
             borderRadius: config('theme.borderRadius.md'),
           },
         },
