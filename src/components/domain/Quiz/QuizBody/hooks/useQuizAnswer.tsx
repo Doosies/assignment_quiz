@@ -11,6 +11,7 @@ export function useQuizAnswer({ answers, correctAnswer, userAnswer }: useQuizAns
   const wrongAnswerIndex = answers.indexOf(userAnswer ?? '');
 
   const getAnswerColor = (idx: number) => {
+    if (!userAnswer) return '';
     if (idx === correctAnswerIndex) return 'text-blue';
     if (idx === wrongAnswerIndex) return 'text-red';
     return '';

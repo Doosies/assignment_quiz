@@ -104,6 +104,10 @@ describe('QuizBody', () => {
       correctAnswer: 't1',
       userAnswer: 'tt2',
     },
+    {
+      scenario: 'userAnswer가 없을 경우 모든 정답지는 기본색으로 표시된다.',
+      correctAnswer: 't1',
+    },
   ].forEach(({ scenario, correctAnswer, userAnswer }) => {
     it(scenario, () => {
       const answers = ['t1', 'tt2', 'ttt3', 'ttt4'];
@@ -120,10 +124,19 @@ describe('QuizBody', () => {
 
       answers.forEach(answer => {
         const answerElement = getByText(answer);
+
+        // 유저의 답이 없을 경우 모든 정답지는 기본색으로 표시된다.
+        if (!userAnswer) {
+          expect(answerElement).not.toHaveClass(correctColor);
+          expect(answerElement).not.toHaveClass(wrongColor);
+          return;
+        }
+
         // 정답이 입력되면 기본적으로 정답색으로 표시된다.
         if (answer === correctAnswer) {
           expect(answerElement).toHaveClass(correctColor);
         }
+
         // 만약 유저가 틀린 답을 선택했다면 그 답은 오답색으로 표시된다.
         if (answer === userAnswer && answer !== correctAnswer) {
           expect(answerElement).toHaveClass(wrongColor);

@@ -20,8 +20,8 @@ export function QuizBody({ answers, correctAnswer, userAnswer, onClick }: QuizBo
   };
 
   return (
-    <div>
-      <ul className="flex flex-col gap-4">
+    <>
+      <ul className="w-full flex flex-col gap-4">
         {answers.map((answer, idx) => (
           <li
             key={answer}
@@ -41,6 +41,6 @@ export function QuizBody({ answers, correctAnswer, userAnswer, onClick }: QuizBo
             : `${WRONG_ANSWER_STRING} ${circledNumber(correctAnswerIndex + 1)} ${correctAnswer}`}
         </p>
       )}
-    </div>
+    </>
   );
 }
