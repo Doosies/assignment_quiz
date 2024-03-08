@@ -22,7 +22,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true, allowExportNames: ['router', 'meta', 'links', 'headers', 'loader', 'action'] },
     ],
-    indent: ['error', 2],
+    indent: ['error', 2, { SwitchCase: 1 }],
     quotes: ['error', 'single'],
     'react/react-in-jsx-scope': 'off',
   },
