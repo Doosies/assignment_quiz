@@ -1,7 +1,7 @@
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { TopBar } from '@components/common';
-import { APIErrorBoundary } from '@components/error/APIErrorBoundary';
+import { APIErrorBoundary } from '@components/error/ErrorBoundary';
 import { PageLayout } from '@components/layout';
 import { TakeQuiz } from '@components/page/QuizPage';
 
