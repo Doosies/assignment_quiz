@@ -4,6 +4,10 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontSize: {
+        '4xs': '0.375rem',
+        '5xs': '0.25rem',
+      },
       colors: ({ colors }) => ({
         paper: colors.gray[50],
         'paper-hover': colors.gray[100],
