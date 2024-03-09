@@ -13,19 +13,19 @@ export function QuizTop({ title, nowQuizPage, maxQuizPage, nowTimer, onlyTitle }
 
   return (
     <>
-      <h1
-        className="w-full text-xl font-bold"
-        dangerouslySetInnerHTML={{ __html: questionNum + title }}
-      ></h1>
       {!onlyTitle && (
         <div className="w-full flex flex-col items-end gap-0">
-          <Timer time={nowTimer} />
           <ProgressBar
             now={nowQuizPage}
             max={maxQuizPage}
           />
+          <div className="w-full flex justify-end">{nowTimer}</div>
         </div>
       )}
+      <h1
+        className="w-full text-xl font-bold"
+        dangerouslySetInnerHTML={{ __html: questionNum + title }}
+      ></h1>
     </>
   );
 }
