@@ -29,7 +29,10 @@ export function QuizBody({ answers, correctAnswer, userAnswer, onClick }: QuizBo
             onClick={() => clickAnswer?.(answer)}
           >
             <span>{circledNumber(idx + 1)}</span>
-            <span className={getAnswerColor(idx)}>{answer}</span>
+            <span
+              className={getAnswerColor(idx)}
+              dangerouslySetInnerHTML={{ __html: answer }}
+            />
           </li>
         ))}
       </ul>

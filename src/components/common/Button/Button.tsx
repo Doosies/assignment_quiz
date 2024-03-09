@@ -13,7 +13,7 @@ export function Button({ children, onClick, className, color = 'primary', size =
   return (
     <button
       onClick={onClick}
-      className={`rounded-md  p-2 transition-colors ${buttonSize} ${bgColor} ${className}`}
+      className={`rounded-md  p-2 px-4 transition-colors ${buttonSize} ${bgColor} ${className}`}
     >
       {children}
     </button>
