@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react';
 
 import { QUIZ_API_URL } from '@constants/APIs';
 
-interface Quiz {
+import { promiseWrapper } from '@utils/async';
+
+export interface Quiz {
   question: string;
   answers: string[];
   correctAnswer: string;
@@ -24,7 +26,6 @@ interface QuizResponse {
 
 async function fetchQuiz(maxQuizPage: number) {
   const response = await axios.get<QuizResponse>(`${QUIZ_API_URL}&amount=${maxQuizPage}`);
-  console.log(response);
 
   const results = response.data.results;
 
@@ -40,35 +41,6 @@ async function fetchQuiz(maxQuizPage: number) {
 
   return quiz;
 }
-
-const promiseWrapper = <T>(promise: Promise<T>): (() => T | never) => {
-  let status: string = 'pending';
-  let result: T;
-
-  const suspender = promise.then(
-    value => {
-      status = 'success';
-      result = value;
-    },
-    error => {
-      status = 'error';
-      result = error;
-    },
-  );
-
-  return () => {
-    switch (status) {
-      case 'pending':
-        throw suspender;
-      case 'success':
-        return result;
-      case 'error':
-        throw result;
-      default:
-        throw new Error('Unknown status');
-    }
-  };
-};
 
 export function useQuizFetch(maxQuizPage = 4) {
   const [isLoading, setIsLoading] = useState(false);
@@ -86,7 +58,6 @@ export function useQuizFetch(maxQuizPage = 4) {
     setIsError(false);
 
     try {
-      // const response =  ;
       const promise = fetchQuiz(maxQuizPage);
       setData(promiseWrapper(promise));
     } catch (error: unknown) {
@@ -98,7 +69,6 @@ export function useQuizFetch(maxQuizPage = 4) {
   };
 
   useEffect(() => {
-    console.log('!#!@#*&!@(*#@&');
     refetch();
   }, []);
 
