@@ -1,5 +1,7 @@
+import { ErrorBoundary } from 'react-error-boundary';
 import { Outlet, Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 
+import { UnkownErrorBoundary } from '@components/error/ErrorBoundary';
 import { GlobalLayout } from '@components/layout';
 
 import { HomePage, QuizPage, ResultsPage, WrongNotePage } from './pages';
@@ -10,7 +12,9 @@ const router = createBrowserRouter(
       path="/"
       element={
         <GlobalLayout>
-          <Outlet />
+          <ErrorBoundary FallbackComponent={UnkownErrorBoundary}>
+            <Outlet />
+          </ErrorBoundary>
         </GlobalLayout>
       }
     >
