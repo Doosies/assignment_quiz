@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 
-import { QuizBody, QuizTop } from './';
+import { QuizBody, QuizBottom, QuizTop } from './';
 
 export function Quiz({ children }: PropsWithChildren) {
   return <section className="p-4 w-full flex flex-col items-center">{children}</section>;
@@ -8,3 +8,4 @@ export function Quiz({ children }: PropsWithChildren) {
 
 Quiz.Top = QuizTop;
 Quiz.Body = QuizBody;
+Quiz.Bottom = QuizBottom;
