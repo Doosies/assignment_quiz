@@ -10,10 +10,7 @@ export function HomePage() {
   const goWrongNotePage = () => navigate('/wrong-note');
 
   return (
-    <PageLayout
-      className="flex-center"
-      noTopBar
-    >
+    <PageLayout className="flex-center">
       <div className="w-full max-w-sm h-full flex-col flex-center gap-4 ">
         <Button
           onClick={goQuizPage}
