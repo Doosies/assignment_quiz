@@ -1,6 +1,5 @@
 interface PageLayoutProps {
   children: React.ReactNode;
-  title?: string;
   className?: string;
 }
 
