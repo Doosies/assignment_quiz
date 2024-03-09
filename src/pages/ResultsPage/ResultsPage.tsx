@@ -33,7 +33,7 @@ export function ResultsPage() {
         </section>
       </main>
 
-      <div className="flex flex-col gap-2 flex-1 p-4">
+      <section className="flex flex-col gap-2 flex-1 p-4">
         <Button
           size="full"
           onClick={saveWrongNote}
@@ -47,7 +47,7 @@ export function ResultsPage() {
         >
           홈으로 가기
         </Button>
-      </div>
+      </section>
     </PageLayout>
   );
 }
