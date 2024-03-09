@@ -5,6 +5,7 @@ import type { Quiz } from '@hooks/fetch';
 
 interface useTakeQuizParams {
   quiz?: Quiz[];
+  timer: string;
 }
 
 interface SelectedAnswer {
@@ -14,7 +15,7 @@ interface SelectedAnswer {
   userAnswer: string;
   isCorrect: boolean;
 }
-export function useTakeQuiz({ quiz }: useTakeQuizParams) {
+export function useTakeQuiz({ quiz, timer }: useTakeQuizParams) {
   const [nowQuizPage, setNowQuizPage] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState('');
 
@@ -53,7 +54,7 @@ export function useTakeQuiz({ quiz }: useTakeQuizParams) {
 
   const goNextQuizPage = () => {
     if (isLastQuiz) {
-      navigate('/result', { state: { selectedAnswerList } });
+      navigate('/result', { state: { selectedAnswerList, timer } });
     } else {
       setSelectedAnswer('');
       setNowQuizPage(prevQuizPage => prevQuizPage + 1);

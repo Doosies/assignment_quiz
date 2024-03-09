@@ -19,7 +19,7 @@ export function TakeQuiz({ timer }: TakeQuizProps) {
     buttonLabel,
     changeSelectedAnswer,
     goNextQuizPage,
-  } = useTakeQuiz({ quiz: data });
+  } = useTakeQuiz({ quiz: data, timer });
 
   return (
     nowQuizPageData && (
