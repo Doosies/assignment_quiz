@@ -22,7 +22,7 @@ export function TopBar({ title }: TopBarProps) {
       >
         홈으로
       </Button>
-      <span className="p-2 text-2xl">{title}</span>
+      <span className="p-2 text-lg">{title}</span>
     </header>
   );
 }

@@ -9,7 +9,7 @@ interface QuizTopProps {
 }
 
 export function QuizTop({ title, nowQuizPage, maxQuizPage, nowTimer, onlyTitle }: QuizTopProps) {
-  const questionNum = `Q${nowQuizPage + 1}. `;
+  const questionNum = `Q${nowQuizPage}. `;
 
   return (
     <>
