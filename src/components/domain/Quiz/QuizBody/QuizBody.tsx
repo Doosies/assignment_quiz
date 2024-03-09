@@ -1,8 +1,8 @@
+import { useQuizAnswer } from '@hooks/quiz';
+
 import { CORRECT_ANSWER_STRING, WRONG_ANSWER_STRING } from '@constants/quiz';
 
 import { circledNumber } from '@utils/string';
-
-import { useQuizAnswer } from './hooks/useQuizAnswer';
 
 interface QuizBodyProps {
   answers: string[];
