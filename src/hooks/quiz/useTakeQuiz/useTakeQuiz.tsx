@@ -45,7 +45,7 @@ export function useTakeQuiz({ quiz, timer = '00:00' }: useTakeQuizParams) {
 
   const goNextQuizPage = () => {
     if (isLastQuiz) {
-      navigate('/result', { state: { selectedAnswerList, timer } });
+      navigate('/result', { state: { selectedAnswerList, timer }, replace: true });
     } else {
       setSelectedAnswer('');
       setNowQuizPage(prevQuizPage => prevQuizPage + 1);

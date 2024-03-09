@@ -10,7 +10,7 @@ export function TopBar({ title }: TopBarProps) {
   const navigate = useNavigate();
 
   const goHomePage = () => {
-    navigate('/');
+    navigate('/', { replace: true });
   };
 
   return (

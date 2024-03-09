@@ -10,7 +10,7 @@ export function UnkownErrorBoundary({ error, resetErrorBoundary }: FallbackProps
 
   const goHome = () => {
     resetErrorBoundary();
-    navigate('/');
+    navigate('/', { replace: true });
   };
 
   useEffect(() => {

@@ -13,7 +13,7 @@ export function APIErrorBoundary({ error, resetErrorBoundary }: FallbackProps) {
 
   const goHome = () => {
     resetErrorBoundary();
-    navigate('/');
+    navigate('/', { replace: true });
   };
 
   let message = '알수없는 에러가 발생했습니다.';
