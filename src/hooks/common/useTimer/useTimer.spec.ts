@@ -1,7 +1,8 @@
 import { renderHook } from '@testing-library/react';
 
+import { ONE_HOUR_MS, ONE_MINUTE_MS, ONE_SECOND_MS } from '@constants/time';
+
 import { timer } from '@utils/test/time';
-import { ONE_HOUR_MS, ONE_MINUTE_MS, ONE_SECOND_MS } from '@utils/time';
 
 import { useTimer } from './useTimer';
 

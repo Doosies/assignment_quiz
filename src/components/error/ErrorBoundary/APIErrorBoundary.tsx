@@ -4,6 +4,7 @@ import type { FallbackProps } from 'react-error-boundary';
 import { useNavigate } from 'react-router-dom';
 
 import { Button } from '@components/common';
+import { ErrorLayout } from '@components/layout/ErrorLayout';
 
 export function APIErrorBoundary({ error, resetErrorBoundary }: FallbackProps) {
   const { response } = error;
@@ -12,7 +13,7 @@ export function APIErrorBoundary({ error, resetErrorBoundary }: FallbackProps) {
 
   const goHome = () => {
     resetErrorBoundary();
-    navigate('/');
+    navigate('/', { replace: true });
   };
 
   let message = '알수없는 에러가 발생했습니다.';
@@ -22,24 +23,22 @@ export function APIErrorBoundary({ error, resetErrorBoundary }: FallbackProps) {
   }
 
   if (!isAxiosError(error)) return;
+
   return (
-    <div className="h-[85%] flex-center flex-col gap-4">
-      <p>{message}</p>
-      <div className="flex-center flex-col gap-2">
-        <Button
-          onClick={resetErrorBoundary}
-          size="lg"
-        >
-          다시 시도
-        </Button>
-        <Button
-          onClick={goHome}
-          size="lg"
-          color="secondary"
-        >
-          홈으로
-        </Button>
-      </div>
-    </div>
+    <ErrorLayout message={message}>
+      <Button
+        onClick={resetErrorBoundary}
+        size="lg"
+      >
+        다시 시도
+      </Button>
+      <Button
+        onClick={goHome}
+        size="lg"
+        color="secondary"
+      >
+        홈으로
+      </Button>
+    </ErrorLayout>
   );
 }

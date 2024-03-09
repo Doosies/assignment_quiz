@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
+import { ONE_SECOND_MS } from '@constants/time';
+
 import { toTimeString } from '@utils/string';
-import { ONE_SECOND_MS } from '@utils/time';
 
 export function useTimer(initialMilliseconds = 0) {
   const startTime = useRef(0);

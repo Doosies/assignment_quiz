@@ -15,7 +15,7 @@ export function Button({ children, onClick, className, noBorder, color = 'primar
   return (
     <button
       onClick={onClick}
-      className={`rounded-md  p-2 px-4 transition-colors ${className}
+      className={`rounded-md  p-2 px-4 transition-colors flex-center ${className}
                   ${buttonSize} ${color !== 'none' && bgColor} ${border} `}
     >
       {children}
