@@ -14,7 +14,7 @@ export function TopBar({ title }: TopBarProps) {
   };
 
   return (
-    <header className="flex items-center bg-paper p-4 gap-4 rounded-t-md border-b">
+    <header className="flex items-center bg-paper p-4 gap-4 rounded-t-md border-b ">
       <Button
         onClick={goHomePage}
         color="secondary"
@@ -22,7 +22,7 @@ export function TopBar({ title }: TopBarProps) {
       >
         홈으로
       </Button>
-      <span className="text-2xl">{title}</span>
+      <span className="p-2 text-2xl">{title}</span>
     </header>
   );
 }

@@ -25,7 +25,7 @@ export function QuizBody({ answers, correctAnswer, userAnswer, onClick }: QuizBo
         {answers.map((answer, idx) => (
           <li
             key={answer}
-            className={`p-2  flex gap-2 break-all ${userAnswer ? '' : 'cursor-pointer hover:bg-paper-hover'}`}
+            className={`flex gap-2 break-all ${userAnswer ? '' : 'cursor-pointer hover:bg-paper-hover'}`}
             onClick={() => clickAnswer?.(answer)}
           >
             <span>{circledNumber(idx + 1)}</span>
