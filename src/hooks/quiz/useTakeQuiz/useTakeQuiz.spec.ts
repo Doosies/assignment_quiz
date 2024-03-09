@@ -131,6 +131,7 @@ describe('useTakeQuiz', () => {
 
     expect(useNavigate).toHaveBeenCalledWith('/result', {
       state: {
+        timer: '00:00',
         selectedAnswerList: [
           {
             ...quizData[0],
@@ -180,6 +181,7 @@ describe('useTakeQuiz', () => {
     // 유저가 성택한 답안 목록이 결과 페이지로 전달된다.
     expect(useNavigate).toHaveBeenCalledWith('/result', {
       state: {
+        timer: '00:00',
         selectedAnswerList: [
           {
             ...quizData[0],
