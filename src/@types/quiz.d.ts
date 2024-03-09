@@ -4,10 +4,7 @@ interface Quiz {
   correctAnswer: string;
 }
 
-interface SelectedAnswer {
-  question: string;
-  answers: string[];
-  correctAnswer: string;
+interface SelectedAnswer extends Quiz {
   userAnswer: string;
   isCorrect: boolean;
 }
