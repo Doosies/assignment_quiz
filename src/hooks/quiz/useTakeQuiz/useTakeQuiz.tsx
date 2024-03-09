@@ -1,21 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import type { Quiz } from '@hooks/fetch';
-
 interface useTakeQuizParams {
   quiz?: Quiz[];
-  timer: string;
+  timer?: string;
 }
 
-interface SelectedAnswer {
-  question: string;
-  answers: string[];
-  correctAnswer: string;
-  userAnswer: string;
-  isCorrect: boolean;
-}
-export function useTakeQuiz({ quiz, timer }: useTakeQuizParams) {
+export function useTakeQuiz({ quiz, timer = '00:00' }: useTakeQuizParams) {
   const [nowQuizPage, setNowQuizPage] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState('');
 

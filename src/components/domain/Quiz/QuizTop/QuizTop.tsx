@@ -1,4 +1,4 @@
-import { ProgressBar, Timer } from '@components/common';
+import { ProgressBar } from '@components/common';
 
 interface QuizTopProps {
   title: string;

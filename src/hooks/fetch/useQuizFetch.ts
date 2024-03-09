@@ -6,24 +6,6 @@ import { QUIZ_API_URL } from '@constants/APIs';
 
 import { promiseWrapper } from '@utils/async';
 
-export interface Quiz {
-  question: string;
-  answers: string[];
-  correctAnswer: string;
-}
-
-interface QuizResponse {
-  response_code: number;
-  results: {
-    type: string;
-    difficulty: string;
-    category: string;
-    question: string;
-    correct_answer: string;
-    incorrect_answers: string[];
-  }[];
-}
-
 async function fetchQuiz(maxQuizPage: number) {
   const response = await axios.get<QuizResponse>(`${QUIZ_API_URL}&amount=${maxQuizPage}`);
 
