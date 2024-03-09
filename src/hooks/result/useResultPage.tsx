@@ -1,11 +1,14 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { stringToSha1 } from '@utils/hashing';
 import { timeStringToKorean } from '@utils/string';
 import { isResultPageLocationState } from '@utils/typeGuard';
 
-export function useResultPage(state: ResultPageLocationState) {
+export function useResultPage(state?: ResultPageLocationState) {
+  if (!isResultPageLocationState(state)) {
+    throw new Error('잘못된 요청입니다.');
+  }
+
   const navigate = useNavigate();
 
   const correctAnswerCount = state?.selectedAnswerList.filter(answer => answer.isCorrect).length;
@@ -22,12 +25,6 @@ export function useResultPage(state: ResultPageLocationState) {
     { title: '걸린 시간', value: timeStringToKorean(state.timer) },
   ];
 
-  useEffect(() => {
-    if (!isResultPageLocationState(state)) {
-      throw new Error('잘못된 요청입니다.');
-    }
-  }, []);
-
   const goHome = () => {
     navigate('/', { replace: true });
   };
@@ -35,11 +32,14 @@ export function useResultPage(state: ResultPageLocationState) {
   const saveWrongNote = async () => {
     const wronAnswers = state?.selectedAnswerList.filter(answer => !answer.isCorrect);
 
-    const wrongConter = JSON.parse(localStorage.getItem('wrongConter') ?? '{}');
+    const wrongCounter = JSON.parse(localStorage.getItem('wrongCounter') ?? '{}');
     const wrongNoteItems = JSON.parse(localStorage.getItem('wrongNoteItems') ?? '{}');
 
     const wrongAnswerPromises = wronAnswers.map(async wrongAnswer => {
       const qustionHash = await stringToSha1(wrongAnswer.question);
+
+      // 전에 푼적이 있으면 count를 더해준다.
+      wrongCounter[qustionHash] = (wrongCounter?.[qustionHash] ?? 0) + 1;
 
       wrongNoteItems[qustionHash] = {
         ...wrongNoteItems[qustionHash],
@@ -47,14 +47,13 @@ export function useResultPage(state: ResultPageLocationState) {
         answers: wrongAnswer.answers,
         correctAnswer: wrongAnswer.correctAnswer,
         userAnswer: wrongAnswer.userAnswer,
-        // 전에 푼적이 있으면 count를 더해준다.
-        count: wrongConter[qustionHash] ? ++wrongConter[qustionHash] : 1,
+        count: wrongCounter[qustionHash],
       };
     });
 
     await Promise.all(wrongAnswerPromises);
 
-    localStorage.setItem('wrongConter', JSON.stringify(wrongConter));
+    localStorage.setItem('wrongCounter', JSON.stringify(wrongCounter));
     localStorage.setItem('wrongNoteItems', JSON.stringify(wrongNoteItems));
 
     goHome();
