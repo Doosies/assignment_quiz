@@ -9,20 +9,23 @@ interface QuizTopProps {
 }
 
 export function QuizTop({ title, nowQuizPage, maxQuizPage, nowTimer, onlyTitle }: QuizTopProps) {
+  const questionNum = `Q${nowQuizPage}. `;
+
   return (
     <>
-      <h1 className="w-full text-2xl font-bold">
-        Q{nowQuizPage}. {title}
-      </h1>
       {!onlyTitle && (
-        <div className="w-full flex flex-col items-end">
+        <div className="w-full flex flex-col items-end gap-0">
           <ProgressBar
             now={nowQuizPage}
             max={maxQuizPage}
           />
-          <Timer time={nowTimer} />
+          <div className="w-full flex justify-end">{nowTimer}</div>
         </div>
       )}
+      <h1
+        className="w-full text-xl font-bold"
+        dangerouslySetInnerHTML={{ __html: questionNum + title }}
+      ></h1>
     </>
   );
 }

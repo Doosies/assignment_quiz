@@ -1,8 +1,8 @@
+import { useQuizAnswer } from '@hooks/quiz';
+
 import { CORRECT_ANSWER_STRING, WRONG_ANSWER_STRING } from '@constants/quiz';
 
 import { circledNumber } from '@utils/string';
-
-import { useQuizAnswer } from './hooks/useQuizAnswer';
 
 interface QuizBodyProps {
   answers: string[];
@@ -21,21 +21,24 @@ export function QuizBody({ answers, correctAnswer, userAnswer, onClick }: QuizBo
 
   return (
     <>
-      <ul className="w-full flex flex-col gap-4">
+      <ul className="w-full flex flex-col gap-4 mt-4">
         {answers.map((answer, idx) => (
           <li
             key={answer}
-            className={`p-2  flex gap-2 break-all ${userAnswer ? '' : 'cursor-pointer hover:bg-paper-hover'}`}
+            className={`flex gap-2 break-all ${userAnswer ? '' : 'cursor-pointer hover:bg-paper-hover'}`}
             onClick={() => clickAnswer?.(answer)}
           >
             <span>{circledNumber(idx + 1)}</span>
-            <span className={getAnswerColor(idx)}>{answer}</span>
+            <span
+              className={getAnswerColor(idx)}
+              dangerouslySetInnerHTML={{ __html: answer }}
+            />
           </li>
         ))}
       </ul>
 
       {userAnswer && (
-        <p className="mt-4">
+        <p className="w-full mt-4">
           {isCorrectAnswer
             ? CORRECT_ANSWER_STRING
             : `${WRONG_ANSWER_STRING} ${circledNumber(correctAnswerIndex + 1)} ${correctAnswer}`}

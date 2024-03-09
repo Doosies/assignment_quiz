@@ -25,7 +25,7 @@
     "paths": {
       "@pages/*": ["src/pages/*"],
       "@components/*": ["src/components/*"],
-      "@business/*": ["src/business/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@constants/*": ["src/constants/*"],
       "@utils/*": ["src/utils/*"],
     },
