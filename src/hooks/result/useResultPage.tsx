@@ -16,7 +16,7 @@ export function useResultPage(state?: ResultPageLocationState) {
 
   const pieChartDatas = [{ title: '틀린 문제', value: wrongAnswerCount, color: '#F44336' }];
   if (correctAnswerCount) {
-    pieChartDatas.push({ title: '맞은 문제', value: correctAnswerCount, color: '#4CAF50' });
+    pieChartDatas.unshift({ title: '맞은 문제', value: correctAnswerCount, color: '#4CAF50' });
   }
 
   const resultInformations = [

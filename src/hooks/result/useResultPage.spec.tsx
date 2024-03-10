@@ -55,8 +55,8 @@ describe('useResultPage', () => {
     const { result } = renderHook(() => useResultPage(state));
 
     expect(result.current.pieChartDatas).toEqual([
-      { title: '틀린 문제', value: 2, color: '#F44336' },
       { title: '맞은 문제', value: 1, color: '#4CAF50' },
+      { title: '틀린 문제', value: 2, color: '#F44336' },
     ]);
 
     expect(result.current.resultInformations).toEqual([

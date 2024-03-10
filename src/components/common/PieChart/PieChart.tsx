@@ -25,7 +25,7 @@ export function PieChart({
       <PieChartBase
         data={data}
         label={label}
-        paddingAngle={data.length > 1 ? 10 : 0}
+        labelPosition={data.length > 1 ? 50 : 0}
         startAngle={-90}
         animate
       />
