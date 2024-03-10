@@ -1,9 +1,6 @@
 export const WrongNoteStore = {
-  getFromLocalStorage: vi.fn(() => ({
-    wrongCounter: {},
-    wrongNoteItems: {},
-  })),
+  getFromLocalStorage: vi.fn(),
   set: vi.fn(),
-  getWrongNoteItemList: vi.fn(() => []),
+  getWrongNoteItemList: vi.fn(),
   removeWrongNoteByQustion: vi.fn(),
 };
