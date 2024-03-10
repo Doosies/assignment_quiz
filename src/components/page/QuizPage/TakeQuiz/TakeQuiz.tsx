@@ -25,7 +25,7 @@ export function TakeQuiz({ timer }: TakeQuizProps) {
     nowQuizPageData && (
       <Quiz>
         <Quiz.Top
-          maxQuizPage={maxQuizPage}
+          maxQuizPage={maxQuizPage + 1}
           nowQuizPage={nowQuizPage + 1}
           title={nowQuizPageData.question}
           nowTimer={timer}
