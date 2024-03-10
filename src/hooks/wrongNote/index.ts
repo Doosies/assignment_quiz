@@ -1,1 +1,1 @@
-export * from './useWrongNotePage';
+export * from './useWrongNote';
