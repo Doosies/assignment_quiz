@@ -14,12 +14,12 @@ export function QuizTop({ title, nowQuizPage, maxQuizPage, nowTimer, onlyTitle }
   return (
     <>
       {!onlyTitle && (
-        <div className="w-full flex flex-col items-end gap-0">
+        <div className="flex w-full flex-col items-end gap-0">
           <ProgressBar
             now={nowQuizPage}
             max={maxQuizPage}
           />
-          <div className="w-full flex justify-end">{nowTimer}</div>
+          <div className="flex w-full justify-end">{nowTimer}</div>
         </div>
       )}
       <h1

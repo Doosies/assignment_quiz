@@ -9,13 +9,13 @@ export function ProgressBar({ now, max, onlyText, className }: ProgressBarProps)
   const nowIsbiggerThanHalf = now > Math.floor(max / 2);
 
   return (
-    <div className={`relative h-8 flex-center w-full ${className}`}>
-      <div className={`absolute flex-center w-full ${!onlyText && nowIsbiggerThanHalf ? 'text-white' : ''}`}>
+    <div className={`relative h-8 w-full flex-center ${className}`}>
+      <div className={`absolute w-full flex-center ${!onlyText && nowIsbiggerThanHalf ? 'text-white' : ''}`}>
         {now} / {max}
       </div>
       {!onlyText && (
         <progress
-          className="progress-bar w-full h-full"
+          className="progress-bar h-full w-full"
           value={now}
           max={max}
         />

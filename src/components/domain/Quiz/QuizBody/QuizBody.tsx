@@ -21,7 +21,7 @@ export function QuizBody({ answers, correctAnswer, userAnswer, onClick }: QuizBo
 
   return (
     <>
-      <ul className="w-full flex flex-col gap-4 mt-4">
+      <ul className="mt-4 flex w-full flex-col gap-4">
         {answers.map((answer, idx) => (
           <li
             key={answer}
@@ -38,7 +38,7 @@ export function QuizBody({ answers, correctAnswer, userAnswer, onClick }: QuizBo
       </ul>
 
       {userAnswer && (
-        <p className="w-full mt-4">
+        <p className="mt-4 w-full">
           {isCorrectAnswer
             ? CORRECT_ANSWER_STRING
             : `${WRONG_ANSWER_STRING} ${circledNumber(correctAnswerIndex + 1)} ${correctAnswer}`}
