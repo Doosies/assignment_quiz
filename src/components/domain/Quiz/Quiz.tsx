@@ -3,7 +3,7 @@ import type { PropsWithChildren } from 'react';
 import { QuizBody, QuizBottom, QuizTop } from './';
 
 export function Quiz({ children }: PropsWithChildren) {
-  return <section className="p-4 w-full flex flex-col items-center">{children}</section>;
+  return <section className="flex w-full flex-col items-center p-4">{children}</section>;
 }
 
 Quiz.Top = QuizTop;

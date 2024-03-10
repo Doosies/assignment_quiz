@@ -5,7 +5,7 @@ interface PageLayoutProps {
 
 export function PageLayout({ children, className }: PageLayoutProps) {
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex h-full flex-col">
       <div className={`relative h-full w-full ${className ? className : ''}`}>{children}</div>
     </div>
   );

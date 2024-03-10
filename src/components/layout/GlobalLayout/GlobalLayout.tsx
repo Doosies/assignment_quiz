@@ -2,10 +2,10 @@ import type { PropsWithChildren } from 'react';
 
 export function GlobalLayout({ children }: PropsWithChildren) {
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center md:p-4">
+    <div className="flex h-full w-full flex-col items-center justify-center md:p-4">
       <div
-        className={`h-full w-full max-w-screen-sm flex flex-col
-                    md:border md:rounded-md md:max-h-[50vh]`}
+        className={`flex h-full w-full max-w-screen-sm flex-col
+                    md:max-h-[50vh] md:rounded-md md:border`}
       >
         {children}
       </div>

@@ -14,17 +14,17 @@ export function ResultsPage() {
     <PageLayout className="flex flex-col ">
       <TopBar title="Results" />
 
-      <main className="flex flex-col md:flex-row w-full h-full">
+      <main className="flex h-full w-full flex-col md:flex-row">
         <PieChart
-          className="px-10 pt-10 text-4xs font-bold w-full md:w-2/3 "
+          className="w-full px-10 pt-10 text-4xs font-bold md:w-2/3 "
           data={pieChartDatas}
           label={data => data.dataEntry.percentage.toFixed(2) + '%'}
         />
-        <section className="w-full md:w-1/2 p-4 flex-center flex-col gap-4 text-lg ">
+        <section className="w-full flex-col gap-4 p-4 text-lg flex-center md:w-1/2 ">
           {resultInformations.map(({ title, value }, index) => (
             <div
               key={index}
-              className="flex-center flex-col"
+              className="flex-col flex-center"
             >
               <p className="font-bold">{title}</p>
               <p>{value}</p>
@@ -33,7 +33,7 @@ export function ResultsPage() {
         </section>
       </main>
 
-      <section className="flex flex-col gap-2 flex-1 p-4">
+      <section className="flex flex-1 flex-col gap-2 p-4">
         <Button
           size="full"
           onClick={saveWrongNote}

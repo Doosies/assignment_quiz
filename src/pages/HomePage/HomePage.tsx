@@ -11,7 +11,7 @@ export function HomePage() {
 
   return (
     <PageLayout className="flex-center">
-      <div className="w-full max-w-sm h-full flex-col flex-center gap-4 ">
+      <div className="h-full w-full max-w-sm flex-col gap-4 flex-center ">
         <Button
           onClick={goQuizPage}
           size="full"

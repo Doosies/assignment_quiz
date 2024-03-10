@@ -36,7 +36,7 @@ describe('useTakeQuiz', () => {
     expect(result.current.nowQuizPage).toBe(0);
     expect(result.current.selectedAnswer).toBe('');
     expect(result.current.nowQuizPageData).toEqual(quizData[0]);
-    expect(result.current.maxQuizPage).toBe(2);
+    expect(result.current.maxQuizPage).toBe(1);
     expect(result.current.buttonAvailable).toBe(false);
     expect(result.current.buttonLabel).toBe('다음 문항');
   });

@@ -11,7 +11,7 @@
   "endOfLine": "auto",
   "arrowParens": "avoid",
   "bracketLine": true,
-  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "importOrder": [

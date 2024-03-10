@@ -1,25 +1,25 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { usePagination } from '@hooks/common/usePagination';
+
 interface useTakeQuizParams {
   quiz?: Quiz[];
   timer?: string;
 }
 
 export function useTakeQuiz({ quiz, timer = '00:00' }: useTakeQuizParams) {
-  const [nowQuizPage, setNowQuizPage] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState('');
+  const navigate = useNavigate();
 
+  const [selectedAnswer, setSelectedAnswer] = useState('');
   const [selectedAnswerList, setSelectedAnswerList] = useState<SelectedAnswer[]>([]);
 
-  const nowQuizPageData = quiz?.[nowQuizPage];
-  const maxQuizPage = quiz?.length ?? 0;
+  const maxPage = quiz?.length ? quiz.length - 1 : 0;
+  const { nowPageNum, isLastPage, goNextPage } = usePagination({ maxIdx: maxPage });
+  const nowQuizPageData = quiz?.[nowPageNum];
 
   const buttonAvailable = selectedAnswer !== '';
-  const isLastQuiz = nowQuizPage === maxQuizPage - 1;
-  const buttonLabel = isLastQuiz ? '결과 확인' : '다음 문항';
-
-  const navigate = useNavigate();
+  const buttonLabel = isLastPage ? '결과 확인' : '다음 문항';
 
   const changeSelectedAnswer = (userAnswer: string) => {
     setSelectedAnswer(userAnswer);
@@ -44,17 +44,17 @@ export function useTakeQuiz({ quiz, timer = '00:00' }: useTakeQuizParams) {
   };
 
   const goNextQuizPage = () => {
-    if (isLastQuiz) {
+    if (isLastPage) {
       navigate('/result', { state: { selectedAnswerList, timer }, replace: true });
     } else {
       setSelectedAnswer('');
-      setNowQuizPage(prevQuizPage => prevQuizPage + 1);
+      goNextPage();
     }
   };
 
   return {
-    nowQuizPage,
-    maxQuizPage,
+    nowQuizPage: nowPageNum,
+    maxQuizPage: maxPage,
     selectedAnswer,
     nowQuizPageData,
     buttonAvailable,
