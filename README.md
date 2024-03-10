@@ -1,5 +1,8 @@
 # 설치 & 실행 & 배포주소
 ```bash
+# pnpm 설치 (없을경우)
+> npm install -g pnpm
+
 # 프로젝트 실행
 > git clone https://github.com/Doosies/assignment_quiz
 > pnpm i && pnpm run dev
