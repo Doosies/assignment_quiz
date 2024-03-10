@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import { WrongNote } from '@utils/WrongNote';
+import { WrongNoteStore } from '@utils/WrongNoteStore';
 import { timeStringToKorean } from '@utils/string';
 import { isResultPageLocationState } from '@utils/typeGuard';
 
@@ -32,7 +32,7 @@ export function useResultPage(state?: ResultPageLocationState) {
   const saveWrongNote = async () => {
     const wronAnswers = state?.selectedAnswerList.filter(answer => !answer.isCorrect);
 
-    await WrongNote.set(wronAnswers);
+    await WrongNoteStore.set(wronAnswers);
 
     goHome();
   };

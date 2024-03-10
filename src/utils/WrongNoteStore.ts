@@ -1,6 +1,6 @@
 import { stringToSha1 } from './hashing';
 
-export class WrongNote {
+export class WrongNoteStore {
   static getFromLocalStorage() {
     const wrongCounter: Record<string, number> = JSON.parse(localStorage.getItem('wrongCounter') ?? '{}');
     const wrongNoteItems: Record<string, WrongNoteItem> = JSON.parse(localStorage.getItem('wrongNoteItems') ?? '{}');
@@ -11,7 +11,7 @@ export class WrongNote {
     };
   }
   static async set(wrongAnswers: SelectedAnswer[]) {
-    const { wrongCounter, wrongNoteItems } = WrongNote.getFromLocalStorage();
+    const { wrongCounter, wrongNoteItems } = WrongNoteStore.getFromLocalStorage();
 
     const wrongAnswerPromises = wrongAnswers.map(async wrongAnswer => {
       const qustionHash = await stringToSha1(wrongAnswer.question);
@@ -36,8 +36,16 @@ export class WrongNote {
   }
 
   static getWrongNoteItemList() {
-    console.log('load');
-    const { wrongNoteItems } = WrongNote.getFromLocalStorage();
+    const { wrongNoteItems } = WrongNoteStore.getFromLocalStorage();
     return Object.values(wrongNoteItems);
+  }
+
+  static async removeWrongNoteByQustion(qustion: string) {
+    const { wrongNoteItems } = WrongNoteStore.getFromLocalStorage();
+    const qustionHash = await stringToSha1(qustion);
+
+    delete wrongNoteItems[qustionHash];
+
+    localStorage.setItem('wrongNoteItems', JSON.stringify(wrongNoteItems));
   }
 }
