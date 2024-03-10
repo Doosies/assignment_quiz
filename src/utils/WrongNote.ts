@@ -34,4 +34,10 @@ export class WrongNote {
     localStorage.setItem('wrongCounter', JSON.stringify(wrongCounter));
     localStorage.setItem('wrongNoteItems', JSON.stringify(wrongNoteItems));
   }
+
+  static getWrongNoteItemList() {
+    console.log('load');
+    const { wrongNoteItems } = WrongNote.getFromLocalStorage();
+    return Object.values(wrongNoteItems);
+  }
 }
