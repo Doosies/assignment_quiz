@@ -9,6 +9,10 @@ interface SelectedAnswer extends Quiz {
   isCorrect: boolean;
 }
 
+interface WrongNoteItem extends SelectedAnswer {
+  count: number;
+}
+
 interface QuizResponse {
   response_code: number;
   results: {
