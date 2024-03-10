@@ -8,9 +8,9 @@ interface ButtonProps {
   invisible?: boolean;
 }
 
-const bgColors = {
+const buttonTypes = {
   primary: 'text-white bg-blue hover:bg-blue-hover',
-  secondary: 'text-white bg-green hover:bg-green-hover',
+  secondary: 'bg-white hover:bg-gray',
   none: '',
 };
 
@@ -23,7 +23,7 @@ export function Button({
   color = 'primary',
   size = 'md',
 }: ButtonProps) {
-  const bgColor = bgColors[color];
+  const buttonType = buttonTypes[color];
   const buttonSize = size === 'full' ? 'w-full' : `text-${size}`;
   const border = noBorder ? '' : 'border';
   const visible = invisible ? 'invisible' : '';
@@ -32,7 +32,7 @@ export function Button({
     <button
       onClick={onClick}
       className={`rounded-md p-2 px-4 transition-colors flex-center 
-                  ${buttonSize} ${bgColor} ${border} ${visible} ${className} 
+                  ${buttonSize} ${buttonType} ${border} ${visible} ${className} 
                 `}
     >
       {children}
